@@ -46,4 +46,11 @@ public class HomeController {
         val = -1;
         return "값을 초기화 합니다";
     }
+
+    //스프링부트는 쿼리스트링의 파라메터를 함수 매개변수로 방을 수 있다.
+    @GetMapping("/home/plus")
+    @ResponseBody
+    public int showPlus(int a, int b) {
+        return a + b;
+    }
 }
