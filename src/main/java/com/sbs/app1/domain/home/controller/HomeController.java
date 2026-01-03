@@ -2,6 +2,7 @@ package com.sbs.app1.domain.home.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -50,7 +51,7 @@ public class HomeController {
     //스프링부트는 쿼리스트링의 파라메터를 함수 매개변수로 방을 수 있다.
     @GetMapping("/home/plus")
     @ResponseBody
-    public int showPlus(int a, int b) {
+    public int showPlus(@RequestParam int a, @RequestParam(defaultValue = "0")  int b) {
         return a + b;
     }
 }
