@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
+    public int val = -1;
+
     @GetMapping("/")
     @ResponseBody
     public String home() {
@@ -22,5 +24,26 @@ public class HomeController {
     @ResponseBody
     public String main2() {
         return "반갑습니다";
+    }
+
+    @GetMapping("/home/increase")
+    @ResponseBody
+    public int showIncrease() {
+
+        return ++val;
+    }
+
+    @GetMapping("/home/decrease")
+    @ResponseBody
+    public int showDecrease() {
+
+        return --val;
+    }
+
+    @GetMapping("/home/initNumber")
+    @ResponseBody
+    public String initNumber() {
+        val = -1;
+        return "값을 초기화 합니다";
     }
 }
